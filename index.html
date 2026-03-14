@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitu | Dev</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <div class="snake-egg" id="snakeEgg" aria-hidden="true">
+    <canvas class="snake-egg__canvas" id="snakeCanvas" width="160" height="120"></canvas>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav__logo">V<span>.</span></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#home" class="nav__link active">Home</a></li>
+      <li><a href="#about" class="nav__link">About Me</a></li>
+      <li><a href="#skills" class="nav__link">Skills</a></li>
+      <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+      <li><a href="#youtube" class="nav__link">YouTube</a></li>
+      <li><a href="#contact" class="nav__link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero__bg-letter" aria-hidden="true">V</div>
+    <canvas class="hero__particles" id="particlesCanvas"></canvas>
+
+    <div class="hero__content">
+      <p class="hero__greeting reveal-up">I'm a</p>
+      <h1 class="hero__title reveal-up">
+        <span id="typingText"></span><span class="hero__cursor">|</span>
+      </h1>
+      <p class="hero__subtitle reveal-up">Transformando ideias em experiências digitais incríveis.</p>
+      <div class="hero__actions reveal-up">
+        <a href="#contact" class="btn btn--primary">Contact Me</a>
+        <a href="#portfolio" class="btn btn--ghost">Ver Projetos</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <div class="stats-strip reveal-up">
+    <div class="container">
+      <div class="stats-strip__grid">
+        <div class="stats-strip__item">
+          <i class="fas fa-check-circle"></i>
+          <span class="stats-strip__num">+85</span>
+          <span class="stats-strip__label">repositórios</span>
+        </div>
+        <div class="stats-strip__item">
+          <i class="fas fa-check-circle"></i>
+          <span class="stats-strip__num">+3</span>
+          <span class="stats-strip__label">anos de experiência</span>
+        </div>
+        <div class="stats-strip__item">
+          <i class="fas fa-check-circle"></i>
+          <span class="stats-strip__num">Projetos</span>
+          <span class="stats-strip__label">reais no GitHub</span>
+        </div>
+        <div class="stats-strip__item">
+          <i class="fas fa-check-circle"></i>
+          <span class="stats-strip__num">Conteúdo</span>
+          <span class="stats-strip__label">sempre atualizado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section__header reveal-up">
+        <span class="section__tag">01. Sobre mim</span>
+        <h2 class="section__title">Quem sou <span class="highlight">eu?</span></h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__image-wrap reveal-left">
+          <div class="about__image-bg"></div>
+          <div class="about__image-frame">
+            <div class="about__image-placeholder">
+              <span class="about__image-letter">V</span>
+            </div>
+          </div>
+          <div class="about__badge">
+            <span class="about__badge-num">3+</span>
+            <span class="about__badge-text">Anos de<br/>experiência</span>
+          </div>
+        </div>
+
+        <div class="about__info reveal-right">
+          <h3 class="about__name">Olá, eu sou <span>Vitor Emanuel</span></h3>
+          <p class="about__desc">
+            Desenvolvedor Web especializado em criar interfaces atraentes e responsivas. Trabalho com
+            <strong>React.js, React Native e TypeScript</strong> para desenvolver aplicações web e mobile de alto desempenho.
+          </p>
+          <p class="about__desc">
+            Com sólido conhecimento em <strong>PHP/Laravel e PostgreSQL</strong>, desenvolvo soluções completas para o setor público e privado — atualmente na <strong>Itarget Tecnologia</strong>, Ceará.
+          </p>
+          <div class="about__stats">
+            <div class="about__stat">
+              <span class="about__stat-num" data-count="20">0</span><span>+</span>
+              <span class="about__stat-label">Projetos</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num" data-count="10">0</span><span>+</span>
+              <span class="about__stat-label">Clientes</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num" data-count="3">0</span><span>+</span>
+              <span class="about__stat-label">Anos exp.</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--primary">Vamos conversar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <p class="section__label reveal-up">O que eu uso no dia a dia</p>
+      <div class="section__header reveal-up">
+        <span class="section__tag">02. Habilidades</span>
+        <h2 class="section__title">Meu <span class="highlight">Stack Completo</span></h2>
+      </div>
+      <p class="skills__intro reveal-up">
+        Tecnologias que uso no dia a dia para construir aplicações web e mobile modernas, escaláveis e de alta performance.
+      </p>
+    </div>
+
+    <!-- ROW 1 — scroll left -->
+    <div class="marquee reveal-up" style="--delay:0.1s">
+      <div class="marquee__track marquee__track--left">
+        <!-- Set A -->
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-react-original colored" aria-hidden="true"></i><i class="fab fa-react fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>React</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-react-original colored" aria-hidden="true"></i><i class="fab fa-mobile-alt fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>React Native</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-typescript-original colored" aria-hidden="true"></i><i class="fas fa-code fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>TypeScript</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-javascript-original colored" aria-hidden="true"></i><i class="fab fa-js fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-html5-original colored" aria-hidden="true"></i><i class="fab fa-html5 fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-css3-original colored" aria-hidden="true"></i><i class="fab fa-css3-alt fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-php-original colored" aria-hidden="true"></i><i class="fab fa-php fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>PHP</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-laravel-plain colored" aria-hidden="true"></i><i class="fab fa-laravel fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Laravel</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-postgresql-original colored" aria-hidden="true"></i><i class="fas fa-database fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>PostgreSQL</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-android-plain colored" aria-hidden="true"></i><i class="fab fa-android fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Android</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-nodejs-original colored" aria-hidden="true"></i><i class="fab fa-node-js fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-git-original colored" aria-hidden="true"></i><i class="fab fa-git-alt fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Git</span>
+        </div>
+        <!-- Set B (duplicate for seamless loop) -->
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-react-original colored" aria-hidden="true"></i><i class="fab fa-react fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>React</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-react-original colored" aria-hidden="true"></i><i class="fab fa-mobile-alt fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>React Native</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-typescript-original colored" aria-hidden="true"></i><i class="fas fa-code fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>TypeScript</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-javascript-original colored" aria-hidden="true"></i><i class="fab fa-js fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-html5-original colored" aria-hidden="true"></i><i class="fab fa-html5 fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-css3-original colored" aria-hidden="true"></i><i class="fab fa-css3-alt fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-php-original colored" aria-hidden="true"></i><i class="fab fa-php fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>PHP</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-laravel-plain colored" aria-hidden="true"></i><i class="fab fa-laravel fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Laravel</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-postgresql-original colored" aria-hidden="true"></i><i class="fas fa-database fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>PostgreSQL</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-android-plain colored" aria-hidden="true"></i><i class="fab fa-android fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Android</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-nodejs-original colored" aria-hidden="true"></i><i class="fab fa-node-js fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-git-original colored" aria-hidden="true"></i><i class="fab fa-git-alt fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Git</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2 — scroll right -->
+    <div class="marquee reveal-up" style="--delay:0.2s">
+      <div class="marquee__track marquee__track--right">
+        <!-- Set A -->
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-github-original colored" aria-hidden="true"></i><i class="fab fa-github fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>GitHub</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-docker-original colored" aria-hidden="true"></i><i class="fab fa-docker fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Docker</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-figma-original colored" aria-hidden="true"></i><i class="fab fa-figma fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Figma</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-tailwindcss-original colored" aria-hidden="true"></i><i class="fas fa-wind fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Tailwind CSS</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-nextjs-original colored" aria-hidden="true"></i><i class="fab fa-react fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Next.js</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-redux-original colored" aria-hidden="true"></i><i class="fas fa-layer-group fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Redux</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-express-original colored" aria-hidden="true"></i><i class="fab fa-node-js fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Express</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-mongodb-original colored" aria-hidden="true"></i><i class="fas fa-database fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>MongoDB</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-mysql-original colored" aria-hidden="true"></i><i class="fas fa-database fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>MySQL</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-sass-original colored" aria-hidden="true"></i><i class="fab fa-sass fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Sass</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-vscode-plain colored" aria-hidden="true"></i><i class="fas fa-code fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>VS Code</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-google-plain colored" aria-hidden="true"></i><i class="fab fa-google fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Google APIs</span>
+        </div>
+        <!-- Set B -->
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-github-original colored" aria-hidden="true"></i><i class="fab fa-github fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>GitHub</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-docker-original colored" aria-hidden="true"></i><i class="fab fa-docker fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Docker</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-figma-original colored" aria-hidden="true"></i><i class="fab fa-figma fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Figma</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-tailwindcss-original colored" aria-hidden="true"></i><i class="fas fa-wind fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Tailwind CSS</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-nextjs-original colored" aria-hidden="true"></i><i class="fab fa-react fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Next.js</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-redux-original colored" aria-hidden="true"></i><i class="fas fa-layer-group fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Redux</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-express-original colored" aria-hidden="true"></i><i class="fab fa-node-js fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Express</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-mongodb-original colored" aria-hidden="true"></i><i class="fas fa-database fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>MongoDB</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-mysql-original colored" aria-hidden="true"></i><i class="fas fa-database fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>MySQL</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-sass-original colored" aria-hidden="true"></i><i class="fab fa-sass fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Sass</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-vscode-plain colored" aria-hidden="true"></i><i class="fas fa-code fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>VS Code</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-google-plain colored" aria-hidden="true"></i><i class="fab fa-google fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Google APIs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3 — scroll left (slower) -->
+    <div class="marquee reveal-up" style="--delay:0.3s">
+      <div class="marquee__track marquee__track--left marquee__track--slow">
+        <!-- Set A -->
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-jest-plain colored" aria-hidden="true"></i><i class="fas fa-vial fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Jest</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-webpack-plain colored" aria-hidden="true"></i><i class="fas fa-box fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Webpack</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-linux-plain colored" aria-hidden="true"></i><i class="fab fa-linux fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Linux</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-bootstrap-plain colored" aria-hidden="true"></i><i class="fab fa-bootstrap fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Bootstrap</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-axios-plain colored" aria-hidden="true"></i><i class="fas fa-plug fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Axios</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-eslint-original colored" aria-hidden="true"></i><i class="fas fa-check-circle fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>ESLint</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-npm-original-wordmark colored" aria-hidden="true"></i><i class="fab fa-npm fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>NPM</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-apache-plain colored" aria-hidden="true"></i><i class="fas fa-server fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Apache</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-postman-plain colored" aria-hidden="true"></i><i class="fas fa-paper-plane fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Postman</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-gitlab-plain colored" aria-hidden="true"></i><i class="fab fa-gitlab fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>GitLab</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-jira-plain colored" aria-hidden="true"></i><i class="fab fa-jira fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Jira</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-trello-plain colored" aria-hidden="true"></i><i class="fab fa-trello fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Trello</span>
+        </div>
+        <!-- Set B -->
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-jest-plain colored" aria-hidden="true"></i><i class="fas fa-vial fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Jest</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-webpack-plain colored" aria-hidden="true"></i><i class="fas fa-box fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Webpack</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-linux-plain colored" aria-hidden="true"></i><i class="fab fa-linux fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Linux</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-bootstrap-plain colored" aria-hidden="true"></i><i class="fab fa-bootstrap fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Bootstrap</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-axios-plain colored" aria-hidden="true"></i><i class="fas fa-plug fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Axios</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-eslint-original colored" aria-hidden="true"></i><i class="fas fa-check-circle fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>ESLint</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-npm-original-wordmark colored" aria-hidden="true"></i><i class="fab fa-npm fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>NPM</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-apache-plain colored" aria-hidden="true"></i><i class="fas fa-server fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Apache</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-postman-plain colored" aria-hidden="true"></i><i class="fas fa-paper-plane fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Postman</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-gitlab-plain colored" aria-hidden="true"></i><i class="fab fa-gitlab fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>GitLab</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-jira-plain colored" aria-hidden="true"></i><i class="fab fa-jira fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Jira</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-item__icon"><i class="devicon-trello-plain colored" aria-hidden="true"></i><i class="fab fa-trello fa-fw tech-fa" aria-hidden="true"></i></span>
+          <span>Trello</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section__header reveal-up">
+        <span class="section__tag">03. Portfólio</span>
+        <h2 class="section__title">Meus <span class="highlight">Projetos</span></h2>
+      </div>
+
+      <div class="portfolio__filters reveal-up">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">App / Mobile</button>
+        <button class="filter-btn" data-filter="api">API</button>
+      </div>
+
+      <div class="portfolio__grid">
+
+        <!-- 1. RH247 Ponto APK -->
+        <div class="project-card reveal-up" data-category="app" style="--delay: 0s">
+          <div class="project-card__img">
+            <div class="project-card__overlay">
+              <div class="project-card__links">
+                <a href="https://github.com/VituSuperMEg/rh247pontoapk" target="_blank" class="project-card__link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-card__placeholder" style="background: linear-gradient(135deg, #0d1b2a, #1b2838);">
+              <i class="fab fa-android" style="color: #3ddc84;"></i>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__tags">
+              <span>Kotlin</span><span>Android</span>
+            </div>
+            <h3 class="project-card__title">RH247 Ponto APK</h3>
+            <p class="project-card__desc">Aplicativo Android de ponto eletrônico para gestão de RH. Registro de ponto, controle de jornada e relatórios.</p>
+          </div>
+        </div>
+
+        <!-- 2. iTalk -->
+        <div class="project-card reveal-up" data-category="web" style="--delay: 0.1s">
+          <div class="project-card__img">
+            <div class="project-card__overlay">
+              <div class="project-card__links">
+                <a href="https://italk-lac.vercel.app" target="_blank" class="project-card__link" aria-label="Live"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/VituSuperMEg/italk" target="_blank" class="project-card__link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-card__placeholder" style="background: linear-gradient(135deg, #0f1923, #1a2744);">
+              <i class="fas fa-comments" style="color: #61dafb;"></i>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__tags">
+              <span>TypeScript</span><span>React</span>
+            </div>
+            <h3 class="project-card__title">iTalk</h3>
+            <p class="project-card__desc">Aplicação de chat em tempo real. Interface moderna com autenticação e troca de mensagens instantâneas.</p>
+          </div>
+        </div>
+
+        <!-- 3. Tickets GO (API Cinema) -->
+        <div class="project-card reveal-up" data-category="api" style="--delay: 0.2s">
+          <div class="project-card__img">
+            <div class="project-card__overlay">
+              <div class="project-card__links">
+                <a href="https://github.com/VituSuperMEg/tickets-go" target="_blank" class="project-card__link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-card__placeholder" style="background: linear-gradient(135deg, #0d1f1a, #00acd7 100%);">
+              <i class="fas fa-ticket-alt" style="color: #00acd7;"></i>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__tags">
+              <span>Go</span><span>API REST</span>
+            </div>
+            <h3 class="project-card__title">Tickets GO</h3>
+            <p class="project-card__desc">API em Go que simula um sistema de cinema — compra de ingressos, sessões e gerenciamento de salas.</p>
+          </div>
+        </div>
+
+        <!-- 4. ClinicSoft Web -->
+        <div class="project-card reveal-up" data-category="web" style="--delay: 0.3s">
+          <div class="project-card__img">
+            <div class="project-card__overlay">
+              <div class="project-card__links">
+                <a href="https://github.com/VituSuperMEg/clinicsoft-web" target="_blank" class="project-card__link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-card__placeholder" style="background: linear-gradient(135deg, #0d1a2b, #1a3550);">
+              <i class="fas fa-hospital" style="color: #3b82f6;"></i>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__tags">
+              <span>TypeScript</span><span>React</span>
+            </div>
+            <h3 class="project-card__title">ClinicSoft Web</h3>
+            <p class="project-card__desc">Sistema web para gestão de clínicas — cadastro de pacientes, agendamentos e prontuários digitais.</p>
+          </div>
+        </div>
+
+        <!-- 5. Entrega Fácil App -->
+        <div class="project-card reveal-up" data-category="app" style="--delay: 0.4s">
+          <div class="project-card__img">
+            <div class="project-card__overlay">
+              <div class="project-card__links">
+                <a href="https://github.com/VituSuperMEg/Entrega-Facil-App" target="_blank" class="project-card__link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-card__placeholder" style="background: linear-gradient(135deg, #1a1200, #2d2000);">
+              <i class="fas fa-truck" style="color: #f59e0b;"></i>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__tags">
+              <span>TypeScript</span><span>React Native</span>
+            </div>
+            <h3 class="project-card__title">Entrega Fácil</h3>
+            <p class="project-card__desc">App mobile de rastreamento e gerenciamento de entregas. Rotas, status em tempo real e notificações.</p>
+          </div>
+        </div>
+
+        <!-- 6. Adedonha Master -->
+        <div class="project-card reveal-up" data-category="web" style="--delay: 0.5s">
+          <div class="project-card__img">
+            <div class="project-card__overlay">
+              <div class="project-card__links">
+                <a href="https://github.com/VituSuperMEg/adedonha-master" target="_blank" class="project-card__link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-card__placeholder" style="background: linear-gradient(135deg, #1a0d2e, #2d1458);">
+              <i class="fas fa-gamepad" style="color: #a855f7;"></i>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__tags">
+              <span>JavaScript</span><span>WebSockets</span>
+            </div>
+            <h3 class="project-card__title">Adedonha Master</h3>
+            <p class="project-card__desc">Jogo online multiplayer de Adedonha (Stop) com salas em tempo real, timer e placar automático.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="portfolio__cta reveal-up">
+        <a href="https://github.com/VituSuperMEg" target="_blank" class="btn btn--ghost">
+          <i class="fab fa-github"></i>
+          <span>Ver todos os repositórios no GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider section-divider--portfolio-youtube" aria-hidden="true">
+    <span class="section-divider__line"></span>
+    <span class="section-divider__dot"></span>
+    <span class="section-divider__label">Conteúdo em vídeo</span>
+    <span class="section-divider__line"></span>
+  </div>
+
+  <section class="youtube section" id="youtube">
+    <div class="container">
+      <p class="section__label reveal-up">conteúdo em vídeo</p>
+      <div class="section__header reveal-up">
+        <span class="section__tag">04. Canal</span>
+        <h2 class="section__title">Meu <span class="highlight">YouTube</span></h2>
+      </div>
+      <p class="youtube__intro reveal-up">
+        Tutoriais, código ao vivo, dicas de carreira e projetos. Inscreva-se para não perder nada.
+      </p>
+
+      <div class="youtube__hero reveal-up">
+        <div class="youtube__channel-card youtube__channel-card--glass">
+          <div class="youtube__channel-avatar-wrap">
+            <img
+              alt="VituDev - Canal YouTube"
+              class="youtube__channel-avatar-img"
+              width="128"
+              height="128"
+              loading="lazy"
+              src="https://yt3.googleusercontent.com/rUBC3GNiQVAfmf3rutbO2Z35VWo_0BNseaFcCy4BZPNb6BHL4Njf8-lJcwhfUK9wujNy-gOdpg=s160-c-k-c0x00ffffff-no-rj"
+              onerror="this.style.display='none'; this.nextElementSibling?.classList.add('is-visible')"
+              onload="this.style.display='block'; this.nextElementSibling?.classList.remove('is-visible')"
+            />
+            <span class="youtube__channel-avatar-fallback is-visible" aria-hidden="true"><i class="fab fa-youtube"></i></span>
+          </div>
+          <div class="youtube__channel-info">
+            <h3 class="youtube__channel-name">VituDev</h3>
+            <p class="youtube__channel-handle">@vitudev2132</p>
+            <p class="youtube__channel-desc">Tutoriais, código ao vivo e dicas de carreira em dev.</p>
+            <a href="https://www.youtube.com/@vitudev2132?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn--primary youtube__subscribe">
+              <i class="fab fa-youtube"></i>
+              <span>Inscrever-se no canal</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="youtube__videos reveal-up">
+        <h3 class="youtube__videos-title">Confira os vídeos</h3>
+        <div class="youtube__grid">
+          <a href="https://www.youtube.com/watch?v=bBXE1F_ZoWA&t=577s" target="_blank" rel="noopener" class="youtube-card">
+            <div class="youtube-card__thumb">
+              <img src="https://i.ytimg.com/an_webp/bBXE1F_ZoWA/mqdefault_6s.webp?du=3000&sqp=CLCy0c0G&rs=AOn4CLCVU4wcJDZq-6CfrOBnqFAByynvnw" alt="Vídeo em live" class="youtube-card__thumb-img" loading="lazy" />
+              <span class="youtube-card__play"><i class="fas fa-play"></i></span>
+              <span class="youtube-card__tag">Live</span>
+            </div>
+            <div class="youtube-card__info">
+              <h4 class="youtube-card__title">Live no canal</h4>
+              <p class="youtube-card__meta">Confira a live completa</p>
+            </div>
+          </a>
+          <a href="https://www.youtube.com/watch?v=kOGLbv-IL-U&t=2158s" target="_blank" rel="noopener" class="youtube-card">
+            <div class="youtube-card__thumb">
+              <img src="https://i.ytimg.com/an_webp/kOGLbv-IL-U/mqdefault_6s.webp?du=3000&sqp=CJ3C0c0G&rs=AOn4CLDrYxHdDHE9rSC5TIMjmYCzEx7-BQ" alt="Vídeo em live" class="youtube-card__thumb-img" loading="lazy" />
+              <span class="youtube-card__play"><i class="fas fa-play"></i></span>
+              <span class="youtube-card__tag">Live</span>
+            </div>
+            <div class="youtube-card__info">
+              <h4 class="youtube-card__title">Live no canal</h4>
+              <p class="youtube-card__meta">Desenvolvimento ao vivo</p>
+            </div>
+          </a>
+          <a href="https://www.youtube.com/watch?v=z2JnClATudE" target="_blank" rel="noopener" class="youtube-card">
+            <div class="youtube-card__thumb">
+              <img src="https://i.ytimg.com/an_webp/z2JnClATudE/mqdefault_6s.webp?du=3000&sqp=COG80c0G&rs=AOn4CLAu3BURS3gYJ8QmcnCYbtc8T3lXsA" alt="Vídeo do canal" class="youtube-card__thumb-img" loading="lazy" />
+              <span class="youtube-card__play"><i class="fas fa-play"></i></span>
+              <span class="youtube-card__tag">Vídeo</span>
+            </div>
+            <div class="youtube-card__info">
+              <h4 class="youtube-card__title">Conteúdo do canal</h4>
+              <p class="youtube-card__meta">Assista no YouTube</p>
+            </div>
+          </a>
+        </div>
+        <a href="https://www.youtube.com/@vitudev2132/videos" target="_blank" rel="noopener" class="btn btn--ghost youtube__all">
+          <i class="fas fa-external-link-alt"></i>
+          <span>Ver todos os vídeos no YouTube</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__header reveal-up">
+        <span class="section__tag">05. Contato</span>
+        <h2 class="section__title">Vamos <span class="highlight">trabalhar juntos?</span></h2>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info reveal-left">
+          <p class="contact__text">
+            Estou disponível para projetos freelance, oportunidades de emprego ou apenas uma conversa sobre tecnologia.
+            Vamos criar experiências digitais excepcionais juntos!
+          </p>
+
+          <div class="contact__items">
+            <div class="contact__item">
+              <div class="contact__item-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact__item-label">Email</span>
+                <a href="mailto:vitu@email.com" class="contact__item-value">vitu@email.com</a>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__item-icon"><i class="fas fa-briefcase"></i></div>
+              <div>
+                <span class="contact__item-label">Empresa atual</span>
+                <span class="contact__item-value">Itarget Tecnologia</span>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <span class="contact__item-label">Localização</span>
+                <span class="contact__item-value">Cedro, Ceará — Brasil</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__socials">
+            <a href="https://github.com/VituSuperMEg" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/@vitudev2132" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/vitor-emanuel-36b314230/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <form class="contact__form reveal-right" id="contactForm">
+          <div class="form__row">
+            <div class="form__group">
+              <input type="text" id="name" name="name" class="form__input" placeholder=" " required />
+              <label for="name" class="form__label">Seu nome</label>
+            </div>
+            <div class="form__group">
+              <input type="email" id="email" name="email" class="form__input" placeholder=" " required />
+              <label for="email" class="form__label">Seu email</label>
+            </div>
+          </div>
+          <div class="form__group">
+            <input type="text" id="subject" name="subject" class="form__input" placeholder=" " required />
+            <label for="subject" class="form__label">Assunto</label>
+          </div>
+          <div class="form__group">
+            <textarea id="message" name="message" class="form__input form__textarea" placeholder=" " required></textarea>
+            <label for="message" class="form__label">Mensagem</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <span>Enviar mensagem</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="form__success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso!
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <a href="#home" class="footer__logo">V<span>.</span></a>
+        <p class="footer__copy">© 2026 Vitu. Feito com <span class="highlight">♥</span> e muito café.</p>
+        <a href="#home" class="footer__back-top" aria-label="Voltar ao topo">
+          <i class="fas fa-chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
